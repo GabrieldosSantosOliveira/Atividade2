@@ -1,7 +1,0 @@
-.container {
-  grid-area: footer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(143, 0, 255, 0.1);
-}
