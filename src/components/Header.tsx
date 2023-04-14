@@ -34,12 +34,15 @@ export const Header = () => {
           <Text fontWeight={700}> PEGAR MEU CAFÉ</Text>
         </Button>
       </header>
-      <div
-        className={clsx('flex lg:hidden flex-col', {
-          'flex flex-col h-screen fixed w-full bg-black': mobileMenuIsOpen,
-        })}
-      >
-        <header className=" flex justify-between items-center px-5 py-4  border-b border-solid border-menu-mobile">
+      <div className={clsx('flex lg:hidden flex-col')}>
+        <header
+          className={clsx(
+            'flex justify-between items-center px-5 py-4  border-b border-solid border-menu-mobile',
+            {
+              'z-10 fixed w-full bg-black top-0 pt-10': mobileMenuIsOpen,
+            },
+          )}
+        >
           <Image
             alt="Logo"
             priority
@@ -76,15 +79,23 @@ export const Header = () => {
         </main>
         <nav
           className={clsx({
-            'flex flex-col  bg-black': mobileMenuIsOpen,
+            'flex flex-col': mobileMenuIsOpen,
             hidden: !mobileMenuIsOpen,
+            'flex flex-col fixed top-[5.6rem] left-0 bottom-0 z-10 w-full bg-black':
+              mobileMenuIsOpen,
           })}
         >
-          <NavBarButton>Home</NavBarButton>
-          <NavBarButton>Menu</NavBarButton>
-          <NavBarButton>Recompensas</NavBarButton>
-          <NavBarButton>Gift Cards</NavBarButton>
-          <NavBarButton>Lojas</NavBarButton>
+          <ul className="overflow-auto h-screen">
+            <NavBarButton>Home</NavBarButton>
+
+            <NavBarButton>Menu</NavBarButton>
+
+            <NavBarButton>Recompensas</NavBarButton>
+
+            <NavBarButton>Gift Cards</NavBarButton>
+
+            <NavBarButton>Lojas</NavBarButton>
+          </ul>
         </nav>
       </div>
     </>

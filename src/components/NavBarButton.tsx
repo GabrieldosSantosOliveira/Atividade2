@@ -12,21 +12,24 @@ export const NavBarButton: NextPage<NavBarButtonProps> = ({
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(false);
   return (
-    <Text
-      fontWeight={isSelected ? 700 : 500}
-      size="lg"
-      {...props}
+    <li
       className={clsx(
-        'border-b  border-solid border-menu-mobile p-3 text-menu-mobile',
+        'border-b w-full border-solid border-menu-mobile p-3 text-menu-mobile',
         {
           'text-menu-mobile': !isSelected,
           'text-color-menu-mobile': isSelected,
           'border-l-8 border-l-button': isSelected,
         },
       )}
-      onClick={() => setIsSelected((prev) => !prev)}
     >
-      <button>{children}</button>
-    </Text>
+      <Text
+        fontWeight={isSelected ? 700 : 500}
+        size="lg"
+        {...props}
+        onClick={() => setIsSelected((prev) => !prev)}
+      >
+        <button>{children}</button>
+      </Text>
+    </li>
   );
 };
