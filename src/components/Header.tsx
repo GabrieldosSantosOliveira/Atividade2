@@ -9,7 +9,6 @@ import { Text } from './Text';
 
 export const Header = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState<boolean>(false);
-  console.log(mobileMenuIsOpen);
   return (
     <>
       <header className="hidden lg:flex w-full justify-center items-center h-20 gap-24">
@@ -41,17 +40,23 @@ export const Header = () => {
         })}
       >
         <header className=" flex justify-between items-center px-5 py-4  border-b border-solid border-menu-mobile">
-          <Image alt="Logo" src="/logo-mobile.svg" width={171} height={32} />
+          <Image
+            alt="Logo"
+            priority
+            src="/logo-mobile.svg"
+            width={171}
+            height={32}
+          />
           <button onClick={() => setMobileMenuIsOpen((prev) => !prev)}>
             <Image
               alt="ícone de menu fechado"
-              src="/menu-closed.svg"
+              src={mobileMenuIsOpen ? '/menu-open.svg' : '/menu-closed.svg'}
               width={24}
               height={8}
             />
           </button>
         </header>
-        <div
+        <main
           className={clsx(
             'flex flex-col justify-center items-center gap-20 my-20 ',
             { hidden: mobileMenuIsOpen },
@@ -68,7 +73,7 @@ export const Header = () => {
           <Button>
             <Text fontWeight={700}> PEGAR MEU CAFÉ</Text>
           </Button>
-        </div>
+        </main>
         <nav
           className={clsx({
             'flex flex-col  bg-black': mobileMenuIsOpen,

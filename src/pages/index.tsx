@@ -27,6 +27,7 @@ export default function Home() {
             src="/Coffee.png"
             width={800}
             height={500}
+            priority
             alt="Dois copos de café com alguns grãos de café ao redor "
             className="object-contain w-full h-full max-w-[50rem] max-h-[31.25rem]"
           />
