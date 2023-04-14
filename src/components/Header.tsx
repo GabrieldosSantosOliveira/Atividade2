@@ -36,7 +36,7 @@ export const Header = () => {
       </header>
       <div
         className={clsx('flex lg:hidden flex-col', {
-          'flex flex-col h-screen absolute w-full bg-black': mobileMenuIsOpen,
+          'flex flex-col h-screen fixed w-full bg-black': mobileMenuIsOpen,
         })}
       >
         <header className=" flex justify-between items-center px-5 py-4  border-b border-solid border-menu-mobile">
